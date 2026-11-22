@@ -101,13 +101,13 @@
 |---|---|---|---|
 | 整車／系統整合 | 鴻華先進 ✓（ADAS 系統設計、ADAS 全端 ML，目標 L2++ 到 L4）[30]；中華汽車 ✓（Camera/Radar 系統）[30]；富智捷 MobileDrive ✓（ADAS 模擬與整車調校）[30] | 系統工程、感知 ML、模擬、整車驗證 | A + C |
 | Tier-1／模組廠 | 同致電子 ✓（ADAS 軟體、實車調試）[30]；輝創電子 ✓（車用控制器軟韌體、融合演算法）[30]；啟碁、華創車電（2026 職缺：**未驗證**） | C/C++ 嵌入式、CAN、感測器融合、實車調校、ISO 26262 | **B** |
-| 車用晶片 | 聯發科（與 Denso 合作開發 ADAS 客製 SoC，2026-01 宣布）[29]；義隆電（擴展到 ADAS 與座艙）[29]；外商 NVIDIA、Qualcomm、NXP 在台車用研發（職缺：**未驗證**） | 模型部署與量化、BSP、驅動、效能最佳化 | C + B |
-| 自駕生態與 Robotaxi | 鴻海 + NVIDIA 以 DRIVE Hyperion 開發 L4 Robotaxi，高雄為首發城市，最快 2028 年上路 [31]；台灣自駕軟體新創的職缺要求 ISO 26262 與 SOTIF（Yourator）[32] | 定位、規劃、ROS 系統、安全論證 | **A** |
+| 車用晶片 | 聯發科（2025-12-26 宣布與 Denso 共同開發 ADAS 客製 SoC；這是開發合作，不是訂單，沒有公布量產時程）[34]；義隆電（擴展到 ADAS 與座艙）[29]；外商 NVIDIA、Qualcomm、NXP 在台車用研發（職缺：**未驗證**） | 模型部署與量化、BSP、驅動、效能最佳化 | C + B |
+| 自駕生態與 Robotaxi | 鴻海 + NVIDIA 以 DRIVE Hyperion 開發 L4 Robotaxi，2026-06 GTC Taipei 宣布高雄為首發城市，2028 年是目標，時程與車隊規模尚未確定 [31]；Yourator 上一則標為台灣自駕軟體新創的職缺要求 ISO 26262 與 SOTIF（職缺是否仍開放：**未驗證**）[32] | 定位、規劃、ROS 系統、安全論證 | **A** |
 | 法人研究機構 | 車輛中心 ARTC：2025-10 啟用全天候自駕驗測場域，最高時速 110 km/h [33]；工研院（自駕軟體職缺，時效：**未驗證**） | 驗證、場景測試、法規 | A + B（SOTIF、OpenSCENARIO） |
 
 **關鍵字觀察**：
 - 台灣職缺描述常見「實車調試」、「Camera/Radar」、「融合演算法」、「C/C++」。
-- AUTOSAR、Vector DaVinci、ISO 26262 在國際車用職缺中很普遍 [32]；不過這次搜尋**沒有找到**職稱明確是「台灣 AUTOSAR 工程師」的職缺（**未驗證**，建議用 104 和 CakeResume 搜尋確認）。
+- AUTOSAR、Vector DaVinci、ISO 26262 在國際（非台灣）車用職缺中很普遍 [32]；不過這次搜尋**沒有找到**職稱明確是「台灣 AUTOSAR 工程師」的職缺（**未驗證**，建議用 104 和 CakeResume 搜尋確認）。
 
 **台灣版建議（取代第 7 節的預設建議）**：
 1. **主軸改為 B + 感知**：以攝影機為主的單一 ADAS 功能（例如 LDW/LKA 或 FCW/AEB），在 Jetson 上做 C++ 實作與 TensorRT 部署，加上 CAN 介面模擬，並附 ISO 26262 HARA 與 SOTIF 場景測試。這組合最貼近同致、輝創、華創等 Tier-1 和晶片廠的職缺。
@@ -144,7 +144,8 @@
 27. 中國 OEM 自研比例：https://insideevs.com/news/794029/how-western-companies-are-losing-the-software-race/
 28. DIGITIMES 台灣車電產業觀察：https://apps.digitimes.com/news/a20260511PD225.html?chid=12
 29. 台灣車用軟體與晶片：https://www.trendforce.com/news/?p=37387 ；https://eetimes.itmedia.co.jp/ee/articles/2611/12/news036.html ；https://www.digitimes.com/tag/automotive_ic/00210953.html
-30. 台灣 ADAS 職缺（2026）：https://freehire.me/jobs/adasxi-tong-she-ji-gong-cheng-shi-f01-hong-hua-xian-jin-ke-ji-gu-fen-you-xian-gong-si-bwqiwhh7 ；https://freehire.me/jobs/ruan-ti-gong-cheng-shi-ai-ml-engineer-adas-full-stack-machine-learning-f76-hong-hua-xian-jin-ke-ji-gu-fen-you-xian-gong-si-n3y2ixfy ；https://freehire.me/jobs/ip-bu-adasruan-ti-gong-cheng-shi-tong-zhi-dian-zi-qi-ye-gu-fen-you-xian-gong-si-o5jjmxcr ；https://freehire.me/jobs/ruan-ti-gong-cheng-shi-adas-gao-xiong-hui-chuang-dian-zi-gu-fen-you-xian-gong-si-5b3qoqsa ；https://freehire.me/jobs/adasxi-tong-gong-cheng-ren-cai-camera-radarshe-ji-kai-fa-zhong-hua-qi-che-gong-ye-gu-fen-you-xian-gong-si-yang-mei-chang-jjv6xu3g ；https://www.yourator.co/companies/mobiledrivetech/jobs/23147 ；https://www.104.com.tw/jobs/search/?keyword=adas
-31. 鴻海 + NVIDIA Robotaxi：https://udn.com/news/story/6811/9247292 ；https://technews.tw/2026/03/17/nvidia-gtc-2026-drive-hyperion/
+30. 台灣 ADAS 職缺（第三方聚合站，查詢日期 2026-11-22；原始職缺頁與是否仍開放：**未驗證**）：https://freehire.me/jobs/adasxi-tong-she-ji-gong-cheng-shi-f01-hong-hua-xian-jin-ke-ji-gu-fen-you-xian-gong-si-bwqiwhh7 ；https://freehire.me/jobs/ruan-ti-gong-cheng-shi-ai-ml-engineer-adas-full-stack-machine-learning-f76-hong-hua-xian-jin-ke-ji-gu-fen-you-xian-gong-si-n3y2ixfy ；https://freehire.me/jobs/ip-bu-adasruan-ti-gong-cheng-shi-tong-zhi-dian-zi-qi-ye-gu-fen-you-xian-gong-si-o5jjmxcr ；https://freehire.me/jobs/ruan-ti-gong-cheng-shi-adas-gao-xiong-hui-chuang-dian-zi-gu-fen-you-xian-gong-si-5b3qoqsa ；https://freehire.me/jobs/adasxi-tong-gong-cheng-ren-cai-camera-radarshe-ji-kai-fa-zhong-hua-qi-che-gong-ye-gu-fen-you-xian-gong-si-yang-mei-chang-jjv6xu3g ；https://www.yourator.co/companies/mobiledrivetech/jobs/23147 ；https://www.104.com.tw/jobs/search/?keyword=adas
+31. 鴻海 + NVIDIA Robotaxi（2026-06 GTC Taipei）：https://nvidianews.nvidia.com/news/nvidia-drive-hyperion-becomes-the-global-platform-for-a-robotaxi-ready-world
 32. 自駕新創與 AUTOSAR 職缺需求：https://www.yourator.co/companies/JobMenta/jobs/30868 ；https://swift-act.odoo.com/jobs/software-autosar-architect-saa01032026-221
-33. ARTC 驗測場域：https://www.bnext.com.tw/article/84832/2025-artc ；https://www.cna.com.tw/news/afe/202307310376.aspx
+33. ARTC 驗測場域：https://www.bnext.com.tw/article/84832/2025-artc ；https://www.cna.com.tw/news/ahel/202510210256.aspx
+34. 聯發科與 Denso：https://money.udn.com/money/story/5612/9227927 ；https://ec.ltn.com.tw/article/breakingnews/5290477
