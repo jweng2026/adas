@@ -22,6 +22,26 @@
 | SOAFEE | Arm 主導的雲原生 SDV 參考架構（容器、編排、混合關鍵性） | 已演進到 SOAFEE.next，對齊 Armv9 與 RD-1 AE [2]；Open AD Kit 以它為編排層 [3] | 開放 | 中：有 x86/Arm 機器就可以跑容器化 Open AD Kit |
 | Eclipse SDV / S-CORE | 開源 SDV 中介軟體（C++ 與 Rust），以 ISO 26262 為目標 | 0.5 (2025-11)、0.7 (2026-05)、0.9 milestone (2026-09) [4]；1.0 是否已發布：**未驗證** | 開源 | 低～中：還在成熟中，適合關注，不建議當主軸 |
 
+### 2.1 採用車廠、市占、現況、前景、技術激進程度
+
+「激進程度」1–5：1 = 保守、已量產多年；5 = 前瞻、尚未量產。
+
+| 選項 | 採用車廠／參與者 | 市占／規模 | 現況 (2026) | 前景 | 激進程度 |
+|---|---|---|---|---|---|
+| AUTOSAR Classic | 幾乎所有傳統 OEM 與 Tier-1；夥伴 300 家以上 [16] | 傳統 MCU ECU 的事實標準。官方沒有公布 ECU 佔比；市調機構估算的市場規模差距很大（21 億到 68 億美元）[17]，只能參考 | R25-11 持續演進 [1] | 穩定；區域控制器與安全 MCU 仍會長期使用。中央運算的部分由 AP 或自研 OS 接手 | 1 |
+| AUTOSAR Adaptive | 官方調查：AP 已在部分 OEM 與 Tier-1 的智駕與座艙域控制器量產；受訪採用者中 OEM 佔 39%、Tier-1 佔 37%、軟體供應商佔 24% [18]。具體車廠名單：**未驗證** | 官方自評已「跨越鴻溝」、進入早期大眾階段 [18]（屬自評） | 推出 CAPI 共通實作，由規格優先轉向程式碼優先；2026-06 普華基礎軟體（iSOFT）的智駕 OS 成為 CAPI 基線 [19] | 中高：CAPI 若成熟，可降低授權與整合成本；與中國生態的連結加深 | 3 |
+| SOAFEE | Arm 主導；成員 120 家以上，包括 GM、Geely、Tata Motors [2]，以及 Nissan [20] | 成員約 30 多個專案使用此架構 [2]；量產車型：**未查到** | SOAFEE.next：AI 參考設計 + 虛擬平台 [2] | 定位為雲原生、虛擬化開發流程；更可能以「開發方法」普及，而非量產軟體標準 | 4 |
+| Eclipse SDV / S-CORE | 創始成員：Accenture、BMW、ETAS、Mercedes-Benz、Qorix [21]；2026 CES 時已有 32 家簽署意向 [22]；VDA 牽頭推動德系車廠開源合作 [22] | 尚無量產車；目標是 2030 年前首個量產專案 SOP [21] | 0.x milestone 迭代中 [4]；ETAS 規劃推出商用發行版 [21] | 德系車廠集體押注，可能成為歐系共通中介軟體 | 4 |
+| QNX（OS，常與 AUTOSAR AP 搭配） | 多數主流 OEM 與 Tier-1；BMW Neue Klasse 採用 [23] | 已裝載於 2.75 億輛以上的車輛（廠商委託 Counterpoint 統計）[23] | 安全認證 RTOS 的主流選擇 | 穩定；在功能安全域仍有優勢 | 1 |
+| COVESA VSS + Eclipse Kuksa | 車輛訊號資料模型；商用車 OEM 透過 ACEA 合作推動 [24]；AGL、Red Hat 已整合 Kuksa [24] | 乘用車量產採用名單：**未驗證** | 被建議用於 EU Data Act 的資料交換 [24] | 在資料與雲端介面層漸成共通語言 | 3 |
+| 自研架構（Tesla、Rivian、中國新勢力） | Tesla 2017 年起採中央運算 [25]；Rivian 的區域架構將 ECU 從 17 顆減為 7 顆，並授權給 VW 集團 [26]；中國 OEM 41% 自研 SDV 元件（美系 25%、歐系 27%）[27] | 不公開；技術領先指標多由這一群主導 [27] | 中央運算 + 區域控制 + 自研 OS 與 OTA | 持續擴大；傳統車廠以合資或授權追趕（例如 VW 與 Rivian） | 5 |
+
+**對求職的意義**：
+- 歐日系 OEM 與 Tier-1 職缺仍以 AUTOSAR CP/AP 為主要關鍵字，QNX 與 ISO 26262 次之。
+- 德系車廠的新職缺開始出現 S-CORE、Rust 與開源 SDV 等關鍵字。
+- 中國與新勢力車廠重視自研中央運算、Linux/ROS 系統與端到端能力，AUTOSAR 只是加分項。
+- 個人專案可以「用 SOME/IP 與分層設計模仿 AP 概念，並說明它與 AUTOSAR 的差異」，兼顧兩邊。
+
 ## 3. 開源 ADAS／自駕功能堆疊
 
 | 選項 | 架構特徵 | 成熟度／部署證據 | 授權 | 個人可行性與求職價值 |
@@ -89,3 +109,15 @@
 13. NVIDIA DRIVE／Hyperion／Alpamayo：https://developer.nvidia.com/drive ；https://www.nvidia.com/en-sg/solutions/autonomous-vehicles/in-vehicle-computing/
 14. CARLA 0.10.0：https://carla.org/2024/12/19/release-0.10.0
 15. ISO/PAS 8800:2024：https://www.iso.org/standard/83303.html
+16. AUTOSAR 夥伴數：https://www.autosar.org/fileadmin/user_upload/2025_01_26_AUTOSAR-PR_Chairperson_Handover.pdf
+17. 市調（差異大，僅供參考）：https://www.nextmsc.com/report/autosar-market-at5395 ；https://marketintelo.com/report/autosar-classic-platform-market
+18. AUTOSAR AP 應用調查：https://www.autosar.org/fileadmin/user_upload/202512_AUTOSAR_AP_Crossing_Chasm_EN.pdf ；https://www.autosar.org/news-events/detail/autosar-adaptive-platform-application-survey-results-in-cn
+19. CAPI 與 iSOFT：https://www.autosar.org/news-events/detail/autosar-and-isoft-announce-major-capi-contribution-to-accelerate-sdv-and-aidv-deployment ；https://news.cgtn.com/news/2026-06-11/Chinese-auto-software-enters-global-industry-standard-1NSJ1X76dSo/p.html
+20. Nissan 加入 SOAFEE：https://www.marklines.com/en/news/328481
+21. S-CORE 成員與時程：https://newsroom.eclipse.org/node/42222 ；https://www.spglobal.com/automotive-insights/en/blogs/2025/07/germany-leads-open-source-automotive-software
+22. VDA／CES 2026：https://vda.de/en/press/press-releases/2026/260107_Automotive-innovation-through-open-collaboration--Momentum-builds-around-open-source-software-as-a-key-driver-of-efficiency-and-success ；https://www.all-about-industries.com/eclipse-and-vda-gain-more-companies-for-open-source-software-a-788e73d992ebc1f029c2d10601af64ea/
+23. QNX：https://www.newswire.com/news/qnx-embedded-technology-now-powering-more-than-275-million-vehicles-on-the-road ；https://www.nasdaq.com/press-release/qnx-technology-help-drive-bmw-groups-next-generation-software-defined-vehicles-2026
+24. COVESA VSS／Kuksa：https://covesa.global/acea-oems-spotlight-vss-expansion-in-commercial-vehicles/ ；https://covesa.global/?p=256106 ；https://projects.eclipse.org/node/12600
+25. Tesla 與自研策略：https://www.iea.org/reports/vehicle-software-and-software-defined-vehicles
+26. Rivian 與 VW：https://spectrum.ieee.org/rivian-volkswagen-software-ev
+27. 中國 OEM 自研比例：https://insideevs.com/news/794029/how-western-companies-are-losing-the-software-race/
